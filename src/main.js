@@ -10,7 +10,8 @@ function processData(data) {
 }
 
 fetch(
-  "https://api.openweathermap.org/data/2.5/weather?lat=51.5072&lon=-0.1276&appid=37b1a357549e4bdfda789736f18214b3",
+  // "https://api.openweathermap.org/data/2.5/weather?lat=51.5072&lon=-0.1276&appid=37b1a357549e4bdfda789736f18214b3",
+  "https://api.openweathermap.org/data/2.5/weather?q=london&appid=37b1a357549e4bdfda789736f18214b3",
   { mode: "cors" },
 )
   .then((response) => response.json())
