@@ -1,4 +1,7 @@
 import "./style.css";
+import generateForm from "./formManager";
+
+generateForm();
 
 function processData(data) {
   const { main: tempInfo, name: location, weather: weatherArray } = data;
