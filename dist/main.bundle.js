@@ -110,13 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/formManager.js":
+/*!****************************!*\
+  !*** ./src/formManager.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// Function for generating the location form\nfunction generateForm() {\n  // Get the content container element\n  const content = document.querySelector(\".content\");\n\n  console.log(content);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateForm);\n\n\n//# sourceURL=webpack://odin-weather/./src/formManager.js?");
+
+/***/ }),
+
 /***/ "./src/main.js":
 /*!*********************!*\
   !*** ./src/main.js ***!
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nfunction processData(data) {\n  const { main: tempInfo, name: location, weather: weatherArray } = data;\n  const obj = { tempInfo, location, weatherArray };\n  return obj;\n}\n\nfetch(\n  \"https://api.openweathermap.org/data/2.5/weather?lat=51.5072&lon=-0.1276&appid=37b1a357549e4bdfda789736f18214b3\",\n  { mode: \"cors\" },\n)\n  .then((response) => response.json())\n  .then((response) => {\n    const dataObj = processData(response);\n    console.log(dataObj);\n  })\n  .catch((err) => {\n    console.log(\"ERROR!\", err);\n  });\n\n\n//# sourceURL=webpack://odin-weather/./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _formManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formManager */ \"./src/formManager.js\");\n\n\n\n(0,_formManager__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\nfunction processData(data) {\n  const { main: tempInfo, name: location, weather: weatherArray } = data;\n  const obj = { tempInfo, location, weatherArray };\n  return obj;\n}\n\nfetch(\n  \"https://api.openweathermap.org/data/2.5/weather?lat=51.5072&lon=-0.1276&appid=37b1a357549e4bdfda789736f18214b3\",\n  { mode: \"cors\" },\n)\n  .then((response) => response.json())\n  .then((response) => {\n    const dataObj = processData(response);\n    console.log(dataObj);\n  })\n  .catch((err) => {\n    console.log(\"ERROR!\", err);\n  });\n\n\n//# sourceURL=webpack://odin-weather/./src/main.js?");
 
 /***/ })
 
