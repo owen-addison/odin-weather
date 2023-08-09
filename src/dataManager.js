@@ -32,3 +32,5 @@ function handleSubmit(location = "london") {
       console.log("ERROR!", err);
     });
 }
+
+export default handleSubmit;
