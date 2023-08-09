@@ -42,6 +42,20 @@ function addInputs() {
   formContainer.appendChild(locationDiv);
 }
 
+// Add submit button
+function addButton() {
+  // Get the form container
+  const formContainer = document.querySelector(".form-container");
+
+  // Add input element of type submit
+  const submitBtn = document.createElement("input");
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.classList.add("edit-form-btn");
+
+  // Add submit button to the form container div
+  formContainer.appendChild(submitBtn);
+}
+
 // Function for generating the location form
 function generateForm() {
   // Initiliase form
@@ -49,6 +63,9 @@ function generateForm() {
 
   // Add inputs
   addInputs();
+
+  // Add button
+  addButton();
 }
 
 export default generateForm;
