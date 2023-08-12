@@ -24,7 +24,7 @@ function handleSubmit(location = "london") {
     .then((response) => {
       // Assign processed data to object
       const dataObj = processData(response);
-      console.log(dataObj);
+      console.log("data manager", dataObj);
       // Return the data object
       return dataObj;
     })
