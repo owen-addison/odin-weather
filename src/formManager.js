@@ -55,19 +55,24 @@ function addButton() {
   submitBtn.classList.add("edit-form-btn");
 
   // Add event listener to submit button
-  submitBtn.addEventListener("click", () => {
+  submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
     // Get the location input
     const locationInput = document.querySelector("#location-input");
 
     // Get the weather data from API request using the location input
     const dataObj = handleSubmit(locationInput.value.toLowerCase());
 
-    console.log(dataObj);
+    console.log("data", dataObj);
   });
 
   // Add submit button to the form container div
   formContainer.appendChild(submitBtn);
 }
+
+// // Add event listener
+// function
 
 // Function for generating the location form
 function generateForm() {
