@@ -1,4 +1,34 @@
-import handleSubmit from "./dataManager";
+// Process the data returned from the API request
+function processData(data) {
+  // Destructure the data object to extract only key properties
+  const { main: tempInfo, name: location, weather: weatherArray } = data;
+  // Assign the extracted properties to new object
+  const obj = { tempInfo, location, weatherArray };
+  // Return the object
+  return obj;
+}
+
+// function for getting the weather data
+async function getWeatherData(location = "london") {
+  try {
+    // Get the weather data from API request using the location input
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${location.toLowerCase()}&appid=37b1a357549e4bdfda789736f18214b3`,
+      { mode: "cors" },
+    );
+    // Extract the data from the API response
+    const weatherData = await response.json();
+
+    // Assign processed data to object
+    const dataObj = processData(weatherData);
+
+    // Return the data object
+    return dataObj;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
 
 // Function for initialising form
 function initForm() {
@@ -61,18 +91,19 @@ function addButton() {
     // Get the location input
     const locationInput = document.querySelector("#location-input");
 
-    // Get the weather data from API request using the location input
-    const dataObj = handleSubmit(locationInput.value.toLowerCase());
+    (async () => {
+      // Get the weather data
+      const weatherData = await getWeatherData(
+        locationInput.value.toLowerCase(),
+      );
 
-    console.log("data", dataObj);
+      console.log("weather data:", weatherData);
+    })();
   });
 
   // Add submit button to the form container div
   formContainer.appendChild(submitBtn);
 }
-
-// // Add event listener
-// function
 
 // Function for generating the location form
 function generateForm() {
