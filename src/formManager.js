@@ -1,18 +1,20 @@
-import processData from "./dataManager";
+import { processForecastData, processCurrentData } from "./dataManager";
 
 // function for getting the weather data
 async function getWeatherData(location = "london") {
   try {
     // Get the weather data from API request using the location input
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location.toLowerCase()}&appid=37b1a357549e4bdfda789736f18214b3`,
+      `https://api.openweathermap.org/data/2.5/forecast?q=${location.toLowerCase()}&appid=37b1a357549e4bdfda789736f18214b3`,
       { mode: "cors" },
     );
     // Extract the data from the API response
     const weatherData = await response.json();
 
+    console.log("raw data", weatherData);
+
     // Assign processed data to object
-    const dataObj = processData(weatherData);
+    const dataObj = processForecastData(weatherData);
 
     // Return the data object
     return dataObj;
@@ -90,6 +92,7 @@ function addButton() {
       );
 
       console.log("weather data:", weatherData);
+      console.log(locationInput.value);
     })();
   });
 
