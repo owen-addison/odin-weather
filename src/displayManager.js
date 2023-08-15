@@ -29,9 +29,6 @@ function displayData(weatherData) {
     const hr = dateText.slice(11, 16);
 
     console.log(dateText, day, hr);
-
-    // Create div for each element
-    const div = document.createElement("div");
   });
 }
 
