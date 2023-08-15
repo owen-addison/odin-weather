@@ -10,3 +10,5 @@ function displayData(weatherData) {
   const today = new Date();
   console.log(today.getDate());
 }
+
+export default displayData;
