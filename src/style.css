@@ -1,6 +1,12 @@
+:root {
+  --bg-colour: rgb(171, 171, 171);
+  --day-colour: rgb(121, 208, 255);
+}
+
 .content {
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-colour);
 }
 
 .form-content {
@@ -23,5 +29,6 @@
 }
 
 .day-div {
+  background-color: var(--day-colour);
   border: 1px solid blue;
 }
