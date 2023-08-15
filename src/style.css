@@ -1,3 +1,27 @@
-.hello {
-  color: red;
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+  border: 1px solid red;
+}
+
+.weather-content {
+  display: flex;
+  gap: 50px;
+
+  border: 1px solid green;
+}
+
+.day-div:first-child {
+  margin-left: auto;
+}
+
+.day-div:last-child {
+  margin-right: auto;
+}
+
+.day-div {
+  border: 1px solid blue;
 }
