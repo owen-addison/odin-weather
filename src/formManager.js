@@ -11,7 +11,7 @@ async function getWeatherData(location = "london") {
     // Extract the data from the API response
     const weatherData = await response.json();
 
-    console.log("raw data", weatherData);
+    // console.log("raw data", weatherData);
 
     // Assign processed data to object
     const dataObj = processForecastData(weatherData);
@@ -91,8 +91,8 @@ function addButton() {
         locationInput.value.toLowerCase(),
       );
 
-      console.log("weather data:", weatherData);
-      console.log(locationInput.value);
+      // console.log("weather data:", weatherData);
+      // console.log(locationInput.value);
     })();
   });
 
