@@ -92,10 +92,11 @@ function addButton() {
         locationInput.value.toLowerCase(),
       );
 
+      console.log("weather data:", weatherData);
+
       // Display the weather data
       displayData(weatherData);
 
-      console.log("weather data:", weatherData);
       // console.log(locationInput.value);
     })();
   });
