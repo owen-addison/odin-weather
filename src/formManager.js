@@ -1,4 +1,5 @@
 import { processForecastData, processCurrentData } from "./dataManager";
+import displayData from "./displayManager";
 
 // function for getting the weather data
 async function getWeatherData(location = "london") {
@@ -90,6 +91,9 @@ function addButton() {
       const weatherData = await getWeatherData(
         locationInput.value.toLowerCase(),
       );
+
+      // Display the weather data
+      displayData(weatherData);
 
       console.log("weather data:", weatherData);
       // console.log(locationInput.value);
