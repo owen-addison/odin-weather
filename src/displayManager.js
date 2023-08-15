@@ -1,3 +1,9 @@
+// Function for getting the day name from a string
+function getDayName(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", { weekday: "long" }); // e.g., "Monday"
+}
+
 // Function for displaying weather data
 function displayData(weatherData) {
   // Get the content div
@@ -18,6 +24,8 @@ function displayData(weatherData) {
     const { date, dateText, description, overview, tempInfo } = forecast;
     // Extract YYYY-MM-DD from dateText
     const forecastDateStr = dateText.slice(0, 10);
+    // Get the day name
+    const dayName = getDayName(forecastDateStr); // Get the day name
     // Destructure the tempInfo object
     const { temp } = tempInfo;
     // Convert the temperature to celsius
@@ -34,7 +42,7 @@ function displayData(weatherData) {
       dayDiv = document.createElement("div");
       dayDiv.classList.add("day-div");
       dayDiv.setAttribute("data-date", forecastDateStr); // Set a data attribute
-      dayDiv.innerHTML = forecastDateStr; // or whatever content you want here
+      dayDiv.innerHTML = `${dayName}, ${forecastDateStr}`; // or whatever content you want here
       weatherContent.appendChild(dayDiv);
     } else {
       dayDiv = document.querySelector(`div[data-date='${forecastDateStr}']`);
