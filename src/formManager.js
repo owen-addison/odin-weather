@@ -37,8 +37,8 @@ function initForm() {
   formBackground.appendChild(formContainer);
 
   // Add form container to document
-  const content = document.querySelector(".content");
-  content.appendChild(formBackground);
+  const formContent = document.querySelector(".form-content");
+  formContent.appendChild(formBackground);
 }
 
 // Add inputs for form
