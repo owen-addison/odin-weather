@@ -40,9 +40,7 @@ function displayData(weatherData) {
     // Convert the temperature to fahrenheit
     const tempF = Math.round((tempC * 9) / 5 + 32);
 
-    const tempDisplay = toggleStatus
-      ? `${tempF} deg fahrenheit`
-      : `${tempC} deg celsius`;
+    const tempDisplay = toggleStatus ? `${tempF} \u2109` : `${tempC} \u2103`;
 
     let dayDiv;
 
@@ -53,7 +51,11 @@ function displayData(weatherData) {
       dayDiv = document.createElement("div");
       dayDiv.classList.add("day-div");
       dayDiv.setAttribute("data-date", forecastDateStr); // Set a data attribute
-      dayDiv.innerHTML = `${dayName}, ${forecastDateStr}`; // or whatever content you want here
+      // Add day title
+      const dayTitle = document.createElement("h4");
+      dayTitle.classList.add("day-title");
+      dayTitle.textContent = `${dayName}, ${forecastDateStr}`;
+      dayDiv.appendChild(dayTitle);
       weatherContent.appendChild(dayDiv);
     } else {
       dayDiv = document.querySelector(`div[data-date='${forecastDateStr}']`);
@@ -62,10 +64,20 @@ function displayData(weatherData) {
     // Add 3-hour forecast div to the respective day div
     const threeHourDiv = document.createElement("div");
     threeHourDiv.classList.add("time-div");
-    threeHourDiv.innerHTML = `${forecast.dateText.slice(
-      11,
-      16,
-    )} ${overview} ${tempDisplay}`; // or any other details you'd like to display
+    // Hourly display title
+    const hour = document.createElement("h5");
+    hour.textContent = forecast.dateText.slice(11, 16);
+    threeHourDiv.appendChild(hour);
+    // Weather details
+    const infoDiv = document.createElement("div");
+    infoDiv.classList.add("info-div");
+    const overviewText = document.createElement("p");
+    overviewText.textContent = `Overview: ${overview}`;
+    const tempText = document.createElement("p");
+    tempText.textContent = `Temperature: ${tempDisplay}`;
+    infoDiv.appendChild(overviewText);
+    infoDiv.appendChild(tempText);
+    threeHourDiv.appendChild(infoDiv);
     dayDiv.appendChild(threeHourDiv);
   });
 }
