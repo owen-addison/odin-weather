@@ -50,6 +50,7 @@ function displayData(weatherData) {
 
     // Add 3-hour forecast div to the respective day div
     const threeHourDiv = document.createElement("div");
+    threeHourDiv.classList.add("time-div");
     threeHourDiv.innerHTML = `${forecast.dateText.slice(
       11,
       16,
