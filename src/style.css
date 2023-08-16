@@ -101,6 +101,13 @@ input[type="text"]:focus {
 
 /* TOGGLE */
 
+/* The container for temperature elements */
+.temp-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
