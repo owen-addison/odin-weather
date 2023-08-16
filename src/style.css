@@ -13,20 +13,22 @@ body {
   flex-direction: column;
 }
 
-/* FORM STYLING */
 
-.form-content {
+.top-content {
   display: flex;
-  /* flex: 1 0 auto; */
+  flex-direction: column;
   
   border: 1px solid red;
 }
+
+/* FORM */
 
 .form-background {
   flex: 1 0 auto;
 }
 
 .form-container {
+  flex: 1 0 auto;
   height: 10rem;
   display: flex;
   align-items: center;
@@ -47,7 +49,11 @@ body {
   padding: 0.25em 0.75em 0.25em 0.75em;
 }
 
-/* WEATHER STYLING */
+/* TOGGLE */
+
+
+
+/* WEATHER */
 
 .weather-content {
   display: flex;
