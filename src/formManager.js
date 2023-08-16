@@ -45,11 +45,19 @@ function createToggle() {
   label.appendChild(slider);
 
   // Add an event listener to the label
-  label.addEventListener("click", () => {
+  label.addEventListener("click", (e) => {
+    e.preventDefault();
+
     checkbox.checked = !checkbox.checked;
 
     // Get the location input
     const locationInput = document.querySelector("#location-input");
+
+    // Check if the input is empty
+    if (locationInput.value.trim() === "") {
+      alert("Please enter a location."); // Optional: Alert the user
+      return; // Exit the function
+    }
 
     (async () => {
       // Get the weather data
@@ -138,18 +146,20 @@ function addButton() {
     // Get the location input
     const locationInput = document.querySelector("#location-input");
 
+    // Check if the input is empty
+    if (locationInput.value.trim() === "") {
+      alert("Please enter a location."); // Optional: Alert the user
+      return; // Exit the function
+    }
+
     (async () => {
       // Get the weather data
       const weatherData = await getWeatherData(
         locationInput.value.toLowerCase(),
       );
 
-      console.log("weather data:", weatherData);
-
       // Display the weather data
       displayData(weatherData);
-
-      // console.log(locationInput.value);
     })();
   });
 
