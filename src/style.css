@@ -3,15 +3,51 @@
   --day-colour: rgb(121, 208, 255);
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
+body {
+  margin: 0;
   background-color: var(--bg-colour);
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FORM STYLING */
+
 .form-content {
+  display: flex;
+  /* flex: 1 0 auto; */
+  
   border: 1px solid red;
 }
+
+.form-background {
+  flex: 1 0 auto;
+}
+
+.form-container {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.location-div {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-form-btn {
+  font-size: 16px;
+  height: fit-content;
+  padding: 0.25em 0.75em 0.25em 0.75em;
+}
+
+/* WEATHER STYLING */
 
 .weather-content {
   display: flex;
