@@ -15,6 +15,7 @@ body {
 
 .content {
   display: flex;
+  min-width: 600px;
   flex-direction: column;
 }
 
@@ -166,7 +167,8 @@ input:checked + .slider:before {
 
 .weather-content {
   display: flex;
-  gap: 50px;
+  gap: 30px;
+  overflow: auto;
 
   border: 1px solid green;
 }
@@ -180,6 +182,11 @@ input:checked + .slider:before {
 }
 
 .day-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background-color: var(--day-colour);
+  min-width: 200px;
+  
   border: 1px solid blue;
 }
