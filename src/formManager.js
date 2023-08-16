@@ -47,6 +47,23 @@ function createToggle() {
   // Add an event listener to the label
   label.addEventListener("click", () => {
     checkbox.checked = !checkbox.checked;
+
+    // Get the location input
+    const locationInput = document.querySelector("#location-input");
+
+    (async () => {
+      // Get the weather data
+      const weatherData = await getWeatherData(
+        locationInput.value.toLowerCase(),
+      );
+
+      console.log("weather data:", weatherData);
+
+      // Display the weather data
+      displayData(weatherData);
+
+      // console.log(locationInput.value);
+    })();
   });
 
   // Create text for temp units
