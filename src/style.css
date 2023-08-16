@@ -6,17 +6,23 @@
   --form-colour: #ffffff;
   --btn-colour: #007BFF;
   --day-colour: rgb(121, 208, 255);
+  --day-colour: #f7f9fc;
+  --text-primary: #333;
+  --text-secondary: #777;
+  --border-colour: #e0e0e0;
 }
 
 body {
   margin: 0;
   background-color: var(--bg-colour);
+  color: var(--text-primary);
 }
 
 .content {
   display: flex;
   min-width: 600px;
   flex-direction: column;
+  padding: 20px;
 }
 
 
@@ -24,8 +30,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  border: 1px solid red;
 }
 
 .form-container, .switch {
@@ -163,14 +167,16 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* WEATHER */
+/* WEATHER CONTAINER */
 
 .weather-content {
   display: flex;
-  gap: 30px;
-  overflow: auto;
-
-  border: 1px solid green;
+    gap: 30px;
+    overflow: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 .day-div:first-child {
@@ -184,9 +190,57 @@ input:checked + .slider:before {
 .day-div {
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
   gap: 10px;
   background-color: var(--day-colour);
   min-width: 200px;
-  
-  border: 1px solid blue;
+}
+
+.day-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--day-colour);
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-colour);
+}
+
+.day-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.time-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.time-div:last-child {
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 5px; /* Adds a little space between the h5 and the info-div */
+  margin-left: 10px;
+}
+
+.info-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 30px; /* Indentation to the right */
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
 }
