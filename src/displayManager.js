@@ -8,6 +8,13 @@ function getDayName(dateString) {
 function displayData(weatherData) {
   // Get the content div
   const weatherContent = document.querySelector(".weather-content");
+  // Get the checkbox status
+  const toggleStatus = document.querySelector(".checkbox").checked;
+
+  // Empty weather content div
+  while (weatherContent.firstChild) {
+    weatherContent.removeChild(weatherContent.firstChild);
+  }
 
   // Get the forecast array from the weather data
   const { forecastArray } = weatherData;
@@ -33,6 +40,10 @@ function displayData(weatherData) {
     // Convert the temperature to fahrenheit
     const tempF = Math.round((tempC * 9) / 5 + 32);
 
+    const tempDisplay = toggleStatus
+      ? `${tempF} deg fahrenheit`
+      : `${tempC} deg celsius`;
+
     let dayDiv;
 
     if (!addedDates.has(forecastDateStr)) {
@@ -54,7 +65,7 @@ function displayData(weatherData) {
     threeHourDiv.innerHTML = `${forecast.dateText.slice(
       11,
       16,
-    )} ${overview} ${tempC}`; // or any other details you'd like to display
+    )} ${overview} ${tempDisplay}`; // or any other details you'd like to display
     dayDiv.appendChild(threeHourDiv);
   });
 }
