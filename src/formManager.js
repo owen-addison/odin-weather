@@ -27,19 +27,13 @@ async function getWeatherData(location = "london") {
 
 // Function for initialising form
 function initForm() {
-  // Create form background
-  const formBackground = document.createElement("div");
-  formBackground.classList.add("form-background");
   // Create form container
   const formContainer = document.createElement("form");
   formContainer.classList.add("form-container");
 
-  // Append container to background element
-  formBackground.appendChild(formContainer);
-
   // Add form container to document
-  const formContent = document.querySelector(".form-content");
-  formContent.appendChild(formBackground);
+  const topContent = document.querySelector(".top-content");
+  topContent.appendChild(formContainer);
 }
 
 // Add inputs for form
