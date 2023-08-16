@@ -27,6 +27,10 @@ async function getWeatherData(location = "london") {
 
 // Function for generating toggle slider
 function createToggle() {
+  // Create container for switch
+  const tempContainer = document.createElement("div");
+  tempContainer.classList.add("temp-container");
+
   // Create switch
   const label = document.createElement("label");
   label.classList.add("switch");
@@ -45,7 +49,18 @@ function createToggle() {
     checkbox.checked = !checkbox.checked;
   });
 
-  return label;
+  // Create text for temp units
+  const cels = document.createElement("p");
+  cels.textContent = "Celsius";
+  const fahr = document.createElement("p");
+  fahr.textContent = "Fahrenheit";
+
+  // Add elements in order to temp container
+  tempContainer.appendChild(cels);
+  tempContainer.appendChild(label);
+  tempContainer.appendChild(fahr);
+
+  return tempContainer;
 }
 
 // Function for initialising form
