@@ -1,4 +1,6 @@
 import "./style.css";
 import generateForm from "./formManager";
 
-generateForm();
+document.addEventListener("DOMContentLoaded", () => {
+  generateForm();
+});
