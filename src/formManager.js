@@ -25,6 +25,29 @@ async function getWeatherData(location = "london") {
   }
 }
 
+// Function for generating toggle slider
+function createToggle() {
+  // Create switch
+  const label = document.createElement("label");
+  label.classList.add("switch");
+
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox"); // Ensure the type is set to checkbox
+  checkbox.classList.add("checkbox");
+  label.appendChild(checkbox);
+
+  const slider = document.createElement("span");
+  slider.classList.add("slider");
+  label.appendChild(slider);
+
+  // Add an event listener to the label
+  label.addEventListener("click", () => {
+    checkbox.checked = !checkbox.checked;
+  });
+
+  return label;
+}
+
 // Function for initialising form
 function initForm() {
   // Create form container
@@ -34,6 +57,9 @@ function initForm() {
   // Add form container to document
   const topContent = document.querySelector(".top-content");
   topContent.appendChild(formContainer);
+
+  // Create toggle and add to document
+  topContent.appendChild(createToggle());
 }
 
 // Add inputs for form
